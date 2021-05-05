@@ -1,0 +1,257 @@
+@import "colores";
+@import "variables";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+.header{
+    display: flex;
+    padding: 10px 0px;
+
+}
+#header__nav.container{
+    padding: 0;
+}
+#header__logo-g{
+    justify-self: center;
+}
+#header__logo-b{
+    display: none;
+}
+.main{
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    .main__carrusel{
+        border: 2px solid $color-borde;
+        width: 100vw;
+        
+    }
+    .main__titulo{
+        font-size: 1rem;
+        color: $color-black;
+        display: block;
+
+    }
+}
+.iconos{
+    display: flex;
+    justify-content: center;
+    .iconoG{
+    height: 40px;
+    margin: 0 10px;
+}
+
+
+}
+.foot{
+    width: 100vw;
+    background-color: $color-black;
+    color: $color-texto;
+    position: fixed;
+    bottom: 0px;
+    margin: auto;
+    
+    .foot__texto{
+        font-weight: 400;
+        font-size: 1.1rem;
+        text-align: center;
+        padding: 10px;
+    }
+}
+/*seccion 1*/
+.tb{
+    width: 100%;
+    font-size: .9rem;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 1px solid $color-borde;
+    color: $color-texto-ocuro;
+    margin: auto;
+    padding: 5px; 
+    .tb__header{
+        border: 2px $color-black solid;
+        background-color: $color-fondo;
+        text-align: center;
+    }
+    .tb__celda{
+        text-align: left;
+        border: 1px solid $color-borde;
+    }
+    .tb__moneda{
+        text-align: right;
+    }
+    .tb__filas{
+        border: 1px solid $color-borde;
+    }
+}
+/*seccion 2*/
+
+.gal__bloque-uno{
+    display: flex;
+    justify-content: center;
+    .gal__bloque-uno__boton{
+        text-align: center;
+    }
+    .gal__bloque-uno__boton:hover{
+        border: 1px solid $color-borde;
+        border-radius: 10px;
+}
+.gal__play{
+    padding: 10px;
+    opacity:0.8;
+    filter:alpha(opacity=80);
+}
+}
+.gal__separador{
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    color: $color-texto;
+    background-color: #362c237c;
+    padding: 5px;
+}
+.gal__bloque-dos{
+    display: block;
+    .gal__fotos{
+    border: 1px solid $color-borde;
+    padding: 5px;
+    background-color: $color-fondo;
+    width: 100%;
+    margin: auto;
+}
+}
+/*seccion 3*/
+.vid{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    align-items: center;
+
+    .vid__separador{
+        background-color: $color-black;
+        color: $color-texto;
+        font-size: 0,2rem;
+        width: 90vw;
+        text-align: center;
+        margin-top: 10px;
+        font-weight: 300;
+        padding: 5px;
+
+    }
+    @for $i from 1 through 4 {
+        .vid__#{$i}{width:90vw}
+    }
+    @for $i from 1 through 4 {
+        .vid__#{$i}{margin-top: 10px;}
+    }
+}
+/*seccion 4*/
+.dat{
+    display: flex;
+    justify-content: center;
+    .dat__titulo{
+        background-color: $color-black;
+        color: $color-texto;
+        font-size: 1.3rem;
+        margin-top: 10px;
+        font-weight: 400;
+        padding: 5px;
+        border-radius: 5px;
+    }
+}
+.contacto{
+    margin: 10px 0;
+}
+
+@media only screen and (min-width: 1024px) {
+    header{
+        background-color: $color-fondo;
+    }
+    #header__logo-g{
+        display: block;
+    }
+    .main{
+        .main__carrusel{
+            width: 60vw;
+    }
+    }
+    .icono.icono__faceG{
+        display: block;
+    }
+    .icono.icono__instaG{
+        display: block;
+    }
+    .icono.icono__pinterG{
+        display: block;
+    }
+    .foot{
+        display: flex;
+        height: 80px;
+        background-color: $color-black;
+        color: $color-texto;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    /*Productos*/
+    .main{
+        height: 500px;
+    }
+    .tb{
+        width: 60%;
+        color: $color-texto;
+        $tabla:(
+            __header: #212529,
+            __celda: #5e6668
+        );
+        @each $casilla, $color in $tabla{
+            .tb#{$casilla}{
+            background-color: $color;
+        }
+    }
+    }
+    /*Fotos*/
+    .gal__bloque-dos{
+        display: flex;
+        justify-content: center;
+        .gal__fotos{
+            width: 30vw;
+        }
+        .gal__fotos:hover{
+            transition: 0.3s;
+            transform: scale(1.1);
+            border: 1px solid $color-borde;
+        }
+    }
+    /*Videos*/
+    .vid{
+        .vid__separador{
+            background-color: $color-fondo;
+            color: $color-texto-ocuro;
+        }
+        @for $i from 1 through 4 {
+            .vid__#{$i}{width:60vw}
+        }
+    }
+    /*Contacto*/
+    .dat{
+        .dat__titulo{
+            background-color: $color-fondo;
+            color: $color-texto-ocuro;
+            border: 1px solid $color-borde;
+        }
+    }
+    .contacto{
+        display: block;
+        margin: auto;
+        width: 50vw;
+        height: 70vh;
+
+    }
+
+}
